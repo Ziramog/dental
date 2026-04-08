@@ -837,75 +837,90 @@
 </section>
 
 <!-- FAQ -->
-<section id="preguntas" class="py-24 px-6 bg-white border-y border-surface-100">
+<section id="preguntas" class="py-28 px-6 bg-white border-y border-surface-100">
     <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-16 fade-up">
-            <h2 class="text-brand-600 font-bold uppercase tracking-widest text-sm mb-3">Preguntas Frecuentes</h2>
-            <h3 class="font-heading text-4xl font-extrabold text-surface-950">Las dudas más comunes</h3>
+        <div class="text-center mb-20 fade-up">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-600 font-bold uppercase tracking-widest text-xs mb-4">Preguntas Frecuentes</span>
+            <h2 class="font-heading text-4xl md:text-5xl font-extrabold text-surface-950 mb-4">Las dudas más <span class="text-highlight">comunes</span></h2>
         </div>
 
         <div class="space-y-4 fade-up">
             <!-- Item 1 -->
-            <details class="group glass-card p-6 rounded-2xl cursor-pointer">
-                <summary class="flex justify-between items-center font-bold text-surface-900 list-none">
+            <details class="group glass-card p-6 rounded-2xl cursor-pointer" onclick="closeOtherFAQs(this)">
+                <summary class="flex justify-between items-center font-bold text-surface-900 text-lg list-none">
                     <span>¿Duele ir al dentista hoy en día?</span>
-                    <span class="transition group-open:rotate-180">
+                    <span class="faq-chevron text-brand-600">
                         <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
                     </span>
                 </summary>
-                <p class="text-surface-600 mt-4 leading-relaxed font-medium">La odontología moderna ha avanzado muchísimo. Usamos anestesia local de última generación, y técnicas de mínima invasión. La mayoría de los tratamientos son completamente indoloros.</p>
+                <div class="faq-answer">
+                    <p class="text-surface-600 leading-relaxed font-medium">La odontología moderna ha avanzado muchísimo. Usamos anestesia local de última generación, y técnicas de mínima invasión. La mayoría de los tratamientos son completamente indoloros.</p>
+                </div>
             </details>
             <!-- Item 2 -->
-            <details class="group glass-card p-6 rounded-2xl cursor-pointer">
-                <summary class="flex justify-between items-center font-bold text-surface-900 list-none">
+            <details class="group glass-card p-6 rounded-2xl cursor-pointer" onclick="closeOtherFAQs(this)">
+                <summary class="flex justify-between items-center font-bold text-surface-900 text-lg list-none">
                     <span>¿Aceptan mi obra social o prepaga?</span>
-                    <span class="transition group-open:rotate-180">
+                    <span class="faq-chevron text-brand-600">
                         <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
                     </span>
                 </summary>
-                <p class="text-surface-600 mt-4 leading-relaxed font-medium">Trabajamos con las principales obras sociales y prepagas de Argentina. Te recomendamos consultarnos directamente por WhatsApp para confirmar la cobertura. También ofrecemos financiación.</p>
+                <div class="faq-answer">
+                    <p class="text-surface-600 leading-relaxed font-medium">Trabajamos con las principales obras sociales y prepagas de Argentina. Te recomendamos consultarnos directamente por WhatsApp para confirmar la cobertura. También ofrecemos financiación.</p>
+                </div>
             </details>
             <!-- Item 3 -->
-            <details class="group glass-card p-6 rounded-2xl cursor-pointer">
-                <summary class="flex justify-between items-center font-bold text-surface-900 list-none">
+            <details class="group glass-card p-6 rounded-2xl cursor-pointer" onclick="closeOtherFAQs(this)">
+                <summary class="flex justify-between items-center font-bold text-surface-900 text-lg list-none">
                     <span>¿Desde qué edad pueden atenderse los chicos?</span>
-                    <span class="transition group-open:rotate-180">
+                    <span class="faq-chevron text-brand-600">
                         <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
                     </span>
                 </summary>
-                <p class="text-surface-600 mt-4 leading-relaxed font-medium">Atendemos a chicos desde los 3 años de edad. La primera visita odontológica es muy importante para generar un vínculo positivo con el dentista desde pequeños.</p>
+                <div class="faq-answer">
+                    <p class="text-surface-600 leading-relaxed font-medium">Atendemos a chicos desde los 3 años de edad. La primera visita odontológica es muy importante para generar un vínculo positivo con el dentista desde pequeños.</p>
+                </div>
             </details>
         </div>
     </div>
 </section>
 
 <!-- CTA -->
-<section id="contacto" class="py-28 px-6 bg-brand-950 text-white relative overflow-hidden">
-    <!-- Mesh gradient overlay inside CTA -->
-    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-500 via-brand-900 to-transparent"></div>
-    
-    <div class="max-w-3xl mx-auto text-center relative z-10 fade-up">
-        <h2 class="font-heading text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Tu sonrisa ideal <br><span class="text-brand-300">a un mensaje de distancia</span></h2>
-        <p class="text-brand-100 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto">Reservar un turno es fácil y rápido. Escribinos por WhatsApp y te respondemos en minutos. Sin compromisos.</p>
-        
-        <a href="https://wa.me/5493571000000" target="_blank" class="bg-white text-brand-900 hover:bg-brand-50 text-lg font-bold py-5 px-10 rounded-full shadow-glow inline-flex items-center gap-3 transition-transform hover:scale-105">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-[#25D366]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+<section id="contacto" class="py-32 px-6 bg-gradient-to-br from-brand-950 via-[#002222] to-brand-900 text-white relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-500 rounded-full filter blur-[120px] animate-blob"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-400 rounded-full filter blur-[120px] animate-blob animation-delay-2000"></div>
+    </div>
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-500 via-transparent to-transparent"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 fade-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-brand-300 font-bold uppercase tracking-widest text-xs mb-6">Reservá tu turno</span>
+        <h2 class="font-heading text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">Tu sonrisa ideal <br><span class="shimmer-text">a un mensaje de distancia</span></h2>
+        <p class="text-brand-100 text-lg md:text-xl font-medium mb-12 max-w-2xl mx-auto leading-relaxed">Reservar un turno es fácil y rápido. Escribinos por WhatsApp y te respondemos en minutos. Sin compromisos.</p>
+
+        <a href="https://wa.me/5493571000000" target="_blank" class="group bg-white text-brand-900 hover:bg-brand-50 text-lg font-bold py-5 px-12 rounded-full shadow-2xl inline-flex items-center gap-3 transition-all hover:scale-105 hover:shadow-brand-500/20">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="text-[#25D366] group-hover:scale-110 transition-transform"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
             Escribir por WhatsApp
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+
+        <p class="text-brand-200/60 text-sm mt-8">⚡ Respuesta promedio: menos de 1 hora</p>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-surface-950 py-10 px-6 border-t border-surface-900 text-surface-400">
+<footer class="bg-surface-950 py-12 px-6 border-t border-surface-900 text-surface-400">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
             <span class="font-heading text-xl font-bold text-white block">Dra. Laura Santa</span>
-            <span class="text-sm">Odontología General y Estética · Río Tercero</span>
+            <span class="text-sm">Odontología General y Estética · Río Tercero, Córdoba</span>
         </div>
-        <div class="flex gap-6 text-sm font-medium">
-            <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-            <a href="#nosotros" class="hover:text-white transition-colors">La Dra. Laura</a>
-            <a href="#testimonios" class="hover:text-white transition-colors">Testimonios</a>
+        <div class="flex gap-8 text-sm font-medium">
+            <a href="#servicios" class="hover:text-brand-400 transition-colors">Servicios</a>
+            <a href="#nosotros" class="hover:text-brand-400 transition-colors">La Dra. Laura</a>
+            <a href="#testimonios" class="hover:text-brand-400 transition-colors">Testimonios</a>
+            <a href="#preguntas" class="hover:text-brand-400 transition-colors">FAQ</a>
         </div>
         <p class="text-sm">© 2025 Todos los derechos reservados</p>
     </div>
