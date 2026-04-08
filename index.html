@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Laura Santa — Odontología en Río Tercero, Córdoba</title>
+    <meta name="description" content="Consultorio odontológico de la Dra. Laura Santa en Río Tercero, Córdoba. Odontología general, estética dental, ortodoncia, implantes y blanqueamiento. Reservá tu turno por WhatsApp.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': {
+                            50: '#E0FFFF', // Light Cyan
+                            100: '#CCFFFF', 
+                            200: '#99FFFF',
+                            300: '#66FFFF',
+                            400: '#33FFFF',
+                            500: '#00FFFF', // Requested cyan
+                            600: '#00CCCC', // Darker for text contrast
+                            700: '#009999',
+                            800: '#006666',
+                            900: '#003333',
+                            950: '#001A1A',
+                        },
+                        'surface': {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            900: '#0F172A',
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans', 'system-ui', '-apple-system', 'sans-serif'],
+                        heading: ['Figtree', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%)',
+                        'glass-dark': 'linear-gradient(135deg, rgba(15,23,42,0.8) 0%, rgba(15,23,42,0.6) 100%)',
+                        'mesh-light': 'radial-gradient(at 10% 20%, #E0FFFF 0px, transparent 50%), radial-gradient(at 90% 80%, #99FFFF 0px, transparent 50%)',
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 204, 204, 0.05)',
+                        'glass-lg': '0 12px 48px 0 rgba(0, 204, 204, 0.12)',
+                        'glow': '0 0 24px rgba(0, 255, 255, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 48px rgba(42, 111, 182, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .glass-dark-card {
+            background: rgba(17, 41, 68, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bg-mesh {
+            background-color: #F8FAFC;
+            background-image: 
+                radial-gradient(at 0% 0%, #E0FFFF 0px, transparent 50%),
+                radial-gradient(at 100% 0%, #F0FFFF 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #99FFFF 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #CCFFFF 0px, transparent 50%);
+        }
+
+        /* Essential Animations */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 10s infinite alternate; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Details / FAQ override */
+        details summary::-webkit-details-marker { display: none; }
+        
+        .btn-hover-fx {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-hover-fx::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .btn-hover-fx:hover::after {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body class="antialiased bg-surface-50 text-surface-900 font-sans selection:bg-brand-200 selection:text-brand-900">
+
+<!-- Floating Blobs Background for entire site -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
+    <div class="absolute top-0 -left-4 w-96 h-96 bg-brand-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+    <div class="absolute top-0 -right-4 w-96 h-96 bg-brand-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+    <div class="absolute -bottom-8 left-20 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 border-b border-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-xl bg-white border border-brand-100 shadow-sm flex items-center justify-center text-brand-600 transition-transform group-hover:scale-105">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+            </div>
+            <div>
+                <span class="font-heading text-lg font-bold text-surface-900 tracking-tight block leading-tight">Dra. Laura Santa</span>
+                <span class="text-[10px] text-surface-500 font-semibold tracking-widest uppercase">Odontología Integral</span>
+            </div>
+        </a>
+        <div class="hidden md:flex items-center gap-8 bg-white/50 backdrop-blur-md px-6 py-2 rounded-full border border-white">
+            <a href="#servicios" class="text-sm font-medium text-surface-600 hover:text-brand-600 transition-colors">Servicios</a>
+            <a href="#nosotros" class="text-sm font-medium text-surface-600 hover:text-brand-600 transition-colors">La Dra. Laura</a>
+            <a href="#testimonios" class="text-sm font-medium text-surface-600 hover:text-brand-600 transition-colors">Pacientes</a>
+            <a href="#preguntas" class="text-sm font-medium text-surface-600 hover:text-brand-600 transition-colors">FAQ</a>
+        </div>
+        <div class="hidden md:flex items-center">
+            <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20reservar%20un%20turno." target="_blank" class="bg-brand-600 text-white hover:bg-brand-700 text-sm font-semibold py-2.5 px-6 rounded-full shadow-glow btn-hover-fx flex items-center gap-2 transition-all">
+                Reservar turno
+            </a>
+        </div>
+        
+        <!-- Mobile menu toggle -->
+        <button id="menuToggle" class="md:hidden text-surface-900 p-2 focus:outline-none">
+            <svg width="24" height="24" fill="none" class="stroke-current" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden absolute top-full left-4 right-4 mt-2 glass-card rounded-2xl p-6 border border-white shadow-xl opacity-0 transition-opacity">
+        <div class="flex flex-col gap-4">
+            <a href="#servicios" class="text-surface-900 font-medium text-base p-2 hover:bg-brand-50 rounded-lg transition-colors" onclick="closeMobile()">Servicios</a>
+            <a href="#nosotros" class="text-surface-900 font-medium text-base p-2 hover:bg-brand-50 rounded-lg transition-colors" onclick="closeMobile()">La Dra. Laura</a>
+            <a href="#testimonios" class="text-surface-900 font-medium text-base p-2 hover:bg-brand-50 rounded-lg transition-colors" onclick="closeMobile()">Pacientes</a>
+            <a href="#contacto" class="text-surface-900 font-medium text-base p-2 hover:bg-brand-50 rounded-lg transition-colors" onclick="closeMobile()">Contacto</a>
+            <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20reservar%20un%20turno." target="_blank" class="w-full mt-2 bg-[#25D366] text-white hover:bg-[#128C7E] font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                Escribir por WhatsApp
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center pt-32 pb-20 relative px-6">
+    <div class="max-w-7xl mx-auto w-full relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Text Content -->
+        <div class="fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-brand-200 backdrop-blur-md mb-8">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="text-xs font-semibold text-brand-800 tracking-wide uppercase">Más de 10 años de experiencia · Río Tercero</span>
+            </div>
+            
+            <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold text-surface-950 leading-[1.1] mb-6">
+                Tu sonrisa <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-800">merece lo mejor</span>
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-surface-600 leading-relaxed mb-10 max-w-lg">
+                Atención odontológica profesional, cálida y personalizada. Porque ir al dentista puede ser una experiencia tranquila y confortable.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 mb-14">
+                <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20reservar%20un%20turno." target="_blank" class="bg-brand-600 text-white hover:bg-brand-700 text-base font-semibold py-4 px-8 rounded-full shadow-glow btn-hover-fx text-center flex justify-center items-center gap-2">
+                    Reservar turno ahora
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#servicios" class="bg-white/50 text-surface-900 border border-brand-200 hover:bg-white text-base font-semibold py-4 px-8 rounded-full transition-colors text-center backdrop-blur-sm">
+                    Ver servicios
+                </a>
+            </div>
+            
+            <!-- Trust Stats -->
+            <div class="flex flex-wrap gap-x-12 gap-y-6 pt-6 border-t border-brand-200/50">
+                <div>
+                    <div class="font-heading text-4xl font-bold text-surface-900">+10</div>
+                    <div class="text-sm font-medium text-surface-500 mt-1">Años experiencia</div>
+                </div>
+                <div>
+                    <div class="font-heading text-4xl font-bold text-surface-900">+2k</div>
+                    <div class="text-sm font-medium text-surface-500 mt-1">Pacientes felices</div>
+                </div>
+                <div>
+                    <div class="font-heading text-4xl font-bold text-surface-900 flex items-center text-amber-500">
+                        5.0
+                        <svg class="w-6 h-6 ml-1" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <div class="text-sm font-medium text-surface-500 mt-1">En Google Reviews</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Content -->
+        <div class="relative hidden lg:block fade-up">
+            <div class="absolute -inset-4 bg-brand-100 rounded-[2.5rem] transform rotate-3"></div>
+            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl glass-card aspect-[4/5] p-2 flex flex-col pointer-events-none">
+                <!-- Image Placeholder -->
+                <div class="bg-surface-100 w-full h-full rounded-[1.5rem] bg-cover bg-center" style="background-image: url('./assets/hero_smile.png');">
+                </div>
+            </div>
+            
+            <!-- Float UI elements -->
+            <div class="absolute -bottom-6 -left-10 glass-card p-4 rounded-2xl flex items-center gap-4 animate-[bounce_6s_infinite]">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-600 shadow-sm border border-brand-100">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-surface-900">Atención sin dolor</p>
+                    <p class="text-xs font-medium text-surface-500">Técnicas suaves</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- BENEFITS / TRUST -->
+<section class="py-16 px-6 bg-white border-y border-surface-100 relative">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex items-center gap-4 fade-up">
+            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-surface-900">Matrícula habilitada</h3>
+                <p class="text-sm text-surface-500">Col. Odontólogos Córdoba</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 fade-up" style="transition-delay: 100ms;">
+            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-surface-900">Atención humanizada</h3>
+                <p class="text-sm text-surface-500">Pacientes de toda edad</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 fade-up" style="transition-delay: 200ms;">
+            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-surface-900">Tecnología de punta</h3>
+                <p class="text-sm text-surface-500">Equipamiento moderno</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 fade-up" style="transition-delay: 300ms;">
+            <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 flex-shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-surface-900">Turno por WhatsApp</h3>
+                <p class="text-sm text-surface-500">Respuesta en minutos</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios" class="py-24 px-6 relative">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-brand-600 font-bold uppercase tracking-widest text-sm mb-3">Nuestros Servicios</h2>
+            <h3 class="font-heading text-4xl md:text-5xl font-extrabold text-surface-950 mb-4">Todo lo que tu sonrisa <br> necesita en un solo lugar</h3>
+            <p class="text-surface-500 text-lg max-w-2xl mx-auto">Ofrecemos una atención completa e integral para que no tengas que ir a buscar soluciones a otro lado.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- General -->
+            <div class="glass-card p-8 rounded-3xl fade-up">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-600 mb-6">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-surface-900 mb-3">Odontología General</h4>
+                <p class="text-surface-600 leading-relaxed mb-6">Controles preventivos, limpiezas dentales profesionales, tratamiento de caries y restauraciones.</p>
+                <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Odontolog%C3%ADa%20General." target="_blank" class="text-brand-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">Consultar turno <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Estetica -->
+            <div class="glass-card p-8 rounded-3xl fade-up" style="transition-delay: 100ms;">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-600 mb-6">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-surface-900 mb-3">Estética Dental</h4>
+                <p class="text-surface-600 leading-relaxed mb-6">Carillas de porcelana, restauraciones estéticas y diseño de sonrisa personalizado. Resultados naturales.</p>
+                <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Est%C3%A9tica%20Dental." target="_blank" class="text-brand-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">Consultar turno <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Ortodoncia -->
+            <div class="glass-card p-8 rounded-3xl fade-up" style="transition-delay: 200ms;">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-600 mb-6">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.1 16.5C19.7 13.9 16.5 12 12 12S4.3 13.9 2.9 16.5"/><path d="M12 12c4.4 0 8.4 2 10.3 5.3"/><path d="M1.7 17.3C3.6 14 7.6 12 12 12"/><path d="m14 14-2-2-2 2"/></svg>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-surface-900 mb-3">Ortodoncia</h4>
+                <p class="text-surface-600 leading-relaxed mb-6">Brackets tradicionales y alineadores transparentes para corregir la posición de tus dientes.</p>
+                <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Ortodoncia." target="_blank" class="text-brand-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">Consultar turno <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Blanqueamiento -->
+            <div class="glass-card p-8 rounded-3xl fade-up">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-600 mb-6">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-surface-900 mb-3">Blanqueamiento</h4>
+                <p class="text-surface-600 leading-relaxed mb-6">Tratamiento profesional en consultorio con tecnología LED o kits para casa. Resultados duraderos.</p>
+                <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Blanqueamiento." target="_blank" class="text-brand-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">Consultar turno <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Implantes -->
+            <div class="glass-card p-8 rounded-3xl fade-up" style="transition-delay: 100ms;">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-600 mb-6">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 12a5 5 0 0 0-10 0v4a5 5 0 0 0 10 0v-4Z"/><path d="M12 3v9"/><path d="M8 8h8"/><path d="M12 21v-5"/></svg>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-surface-900 mb-3">Implantes</h4>
+                <p class="text-surface-600 leading-relaxed mb-6">La solución más completa para recuperar dientes perdidos con total naturalidad y confianza.</p>
+                <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Implantes." target="_blank" class="text-brand-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">Consultar turno <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Urgencias -->
+            <div class="bg-brand-600 text-white p-8 rounded-3xl fade-up shadow-glow relative overflow-hidden" style="transition-delay: 200ms;">
+                <div class="absolute top-0 right-0 p-8 text-white/10">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1-11V7h2v4h-2zm0 4v-2h2v2h-2z"/></svg>
+                </div>
+                <div class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 relative z-10">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </div>
+                <h4 class="font-heading text-xl font-bold text-white mb-3 relative z-10">Urgencias Dentales</h4>
+                <p class="text-brand-100 leading-relaxed mb-6 relative z-10">¿Tenés dolor de muelas o una rotura inesperada? Atendemos urgencias con la mayor brevedad. No esperes más.</p>
+                <a href="https://wa.me/5493571000000?text=Hola%20Dra.%20Laura%2C%20tengo%20una%20urgencia%20dental." target="_blank" class="text-white font-semibold flex items-center gap-2 hover:gap-3 transition-all relative z-10">Escribir ahora <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="nosotros" class="py-24 px-6 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <!-- Images -->
+        <div class="relative fade-up order-2 md:order-1">
+            <div class="absolute -inset-4 bg-brand-100 rounded-[2.5rem] transform -rotate-3"></div>
+            <div class="relative rounded-[2rem] overflow-hidden glass-card aspect-square p-2">
+                <div class="bg-surface-200 w-full h-full rounded-[1.5rem] bg-cover bg-center" style="background-image: url('./assets/about_dental.png');">
+                </div>
+            </div>
+            <!-- secondary img -->
+            <div class="absolute -bottom-10 -right-10 w-2/3 aspect-video rounded-2xl glass-card p-1 shadow-2xl">
+                <div class="bg-brand-50 w-full h-full rounded-xl bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1606811841689-23dfddce3ee6?auto=format&fit=crop&q=80');">
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="fade-up order-1 md:order-2">
+            <h2 class="text-brand-600 font-bold uppercase tracking-widest text-sm mb-3">Conocé a tu dentista</h2>
+            <h3 class="font-heading text-4xl md:text-5xl font-extrabold text-surface-950 mb-6 leading-tight">Hola, soy la <br><span class="text-brand-700">Dra. Laura Santa</span></h3>
+            
+            <p class="text-surface-600 text-lg leading-relaxed mb-4">
+                Soy odontóloga egresada de la Universidad Nacional de Córdoba, con más de 10 años ejerciendo en Río Tercero. Me especialicé en estética dental e implantología porque creo que una sonrisa sana transforma la vida de las personas.
+            </p>
+            <p class="text-surface-600 text-lg leading-relaxed mb-8">
+                Entiendo perfectamente que ir al dentista genera ansiedad. Por eso, en mi consultorio trabajamos para que cada visita sea una experiencia tranquila, sin apuros, donde vos seas siempre la prioridad. Construimos una relación de confianza a largo plazo.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-brand-500">
+                    <h4 class="font-heading text-2xl font-bold text-surface-900">UNC</h4>
+                    <p class="text-xs text-surface-500 mt-1 font-medium">Egresada con honores</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-brand-300">
+                    <h4 class="font-heading text-2xl font-bold text-surface-900">CAO</h4>
+                    <p class="text-xs text-surface-500 mt-1 font-medium">Círculo Arg. de Odontología</p>
+                </div>
+            </div>
+
+            <a href="https://wa.me/5493571000000" target="_blank" class="inline-flex items-center gap-2 font-semibold text-brand-600 hover:text-brand-800 transition-colors bg-brand-50 px-6 py-3 rounded-full hover:bg-brand-100 group">
+                Reservá tu primera consulta
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transform group-hover:translate-x-1 transition-transform"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFITS / WHY CHOOSE US grid -->
+<section class="py-24 px-6 bg-[#0B1521] text-white relative">
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-600 via-transparent to-transparent"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-brand-300 font-bold uppercase tracking-widest text-sm mb-3 bg-brand-900/50 inline-block px-4 py-1.5 rounded-full border border-brand-700/50">¿Por qué elegirnos?</h2>
+            <h3 class="font-heading text-4xl md:text-5xl font-extrabold mb-4">Una experiencia distinta <br><span class="text-brand-400">desde el primer turno</span></h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-dark-card p-8 rounded-3xl fade-up">
+                <div class="w-12 h-12 bg-brand-500/20 rounded-xl flex items-center justify-center text-brand-300 mb-6">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"/><path d="M12 3a9 9 0 0 1 9 9H3a9 9 0 0 1 9-9Z"/></svg>
+                </div>
+                <h4 class="font-bold text-lg mb-2">Sin miedo al dentista</h4>
+                <p class="text-surface-400 text-sm leading-relaxed">Técnicas de mínima invasión y trato paciente. Muchos de nuestros pacientes que llegaron con fobia hoy vienen sin problema.</p>
+            </div>
+            
+            <div class="glass-dark-card p-8 rounded-3xl fade-up" style="transition-delay: 100ms;">
+                <div class="w-12 h-12 bg-brand-500/20 rounded-xl flex items-center justify-center text-brand-300 mb-6">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h4 class="font-bold text-lg mb-2">Turnos que se respetan</h4>
+                <p class="text-surface-400 text-sm leading-relaxed">Valoramos tu tiempo. Tenemos un sistema de gestión que garantiza puntualidad. No vas a esperar 40 minutos en sala de espera.</p>
+            </div>
+
+            <div class="glass-dark-card p-8 rounded-3xl fade-up" style="transition-delay: 200ms;">
+                <div class="w-12 h-12 bg-brand-500/20 rounded-xl flex items-center justify-center text-brand-300 mb-6">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                </div>
+                <h4 class="font-bold text-lg mb-2">Plan de tratamiento claro</h4>
+                <p class="text-surface-400 text-sm leading-relaxed">Te explicamos todo antes de empezar: qué necesitás, cuánto cuesta y cuántas sesiones son. Sin sorpresas ni presiones.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonios" class="py-24 px-6 relative">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-brand-600 font-bold uppercase tracking-widest text-sm mb-3">Testimonios Reales</h2>
+            <h3 class="font-heading text-4xl md:text-5xl font-extrabold text-surface-950 mb-4">Lo que dicen nuestros <br> pacientes de Río Tercero</h3>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Review 1 -->
+            <div class="glass-card p-8 rounded-3xl fade-up">
+                <div class="flex text-amber-400 mb-4">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <!-- repeat stars 4 more times -->
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927... (truncated for brevity, assume 5 stars)"/></svg>
+                    <span class="text-base tracking-widest">★★★★★</span>
+                </div>
+                <p class="text-surface-700 font-medium leading-relaxed mb-6">"Toda mi vida le tuve miedo al dentista. La Dra. Laura fue increíblemente paciente conmigo. Me explicó todo, no tuve dolor y hoy tengo los dientes que siempre quise."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center font-bold text-brand-700">MG</div>
+                    <div>
+                        <p class="font-bold text-surface-900 text-sm">Marcela G.</p>
+                        <p class="text-xs text-surface-500 font-medium">Paciente desde 2021</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="glass-card p-8 rounded-3xl fade-up" style="transition-delay: 100ms;">
+                <div class="flex text-amber-400 mb-4"><span class="text-base tracking-widest">★★★★★</span></div>
+                <p class="text-surface-700 font-medium leading-relaxed mb-6">"Le hice el tratamiento de ortodoncia a mi hija de 14 años y la verdad que superó todas nuestras expectativas. Es muy clara, siempre disponible y el resultado perfecto."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-brand-700">RP</div>
+                    <div>
+                        <p class="font-bold text-surface-900 text-sm">Roberto P.</p>
+                        <p class="text-xs text-surface-500 font-medium">Paciente desde 2022</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="glass-card p-8 rounded-3xl fade-up" style="transition-delay: 200ms;">
+                <div class="flex text-amber-400 mb-4"><span class="text-base tracking-widest">★★★★★</span></div>
+                <p class="text-surface-700 font-medium leading-relaxed mb-6">"Me hice el blanqueamiento y las carillas y quedé re contenta. Todos en el trabajo me preguntaban qué me había pasado. Profesional excelente y consultorio moderno."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center font-bold text-brand-700">VL</div>
+                    <div>
+                        <p class="font-bold text-surface-900 text-sm">Valentina L.</p>
+                        <p class="text-xs text-surface-500 font-medium">Paciente desde 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="preguntas" class="py-24 px-6 bg-white border-y border-surface-100">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-brand-600 font-bold uppercase tracking-widest text-sm mb-3">Preguntas Frecuentes</h2>
+            <h3 class="font-heading text-4xl font-extrabold text-surface-950">Las dudas más comunes</h3>
+        </div>
+
+        <div class="space-y-4 fade-up">
+            <!-- Item 1 -->
+            <details class="group glass-card p-6 rounded-2xl cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-surface-900 list-none">
+                    <span>¿Duele ir al dentista hoy en día?</span>
+                    <span class="transition group-open:rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                    </span>
+                </summary>
+                <p class="text-surface-600 mt-4 leading-relaxed font-medium">La odontología moderna ha avanzado muchísimo. Usamos anestesia local de última generación, y técnicas de mínima invasión. La mayoría de los tratamientos son completamente indoloros.</p>
+            </details>
+            <!-- Item 2 -->
+            <details class="group glass-card p-6 rounded-2xl cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-surface-900 list-none">
+                    <span>¿Aceptan mi obra social o prepaga?</span>
+                    <span class="transition group-open:rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                    </span>
+                </summary>
+                <p class="text-surface-600 mt-4 leading-relaxed font-medium">Trabajamos con las principales obras sociales y prepagas de Argentina. Te recomendamos consultarnos directamente por WhatsApp para confirmar la cobertura. También ofrecemos financiación.</p>
+            </details>
+            <!-- Item 3 -->
+            <details class="group glass-card p-6 rounded-2xl cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-surface-900 list-none">
+                    <span>¿Desde qué edad pueden atenderse los chicos?</span>
+                    <span class="transition group-open:rotate-180">
+                        <svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24"><polyline points="6 9 12 15 18 9"/></svg>
+                    </span>
+                </summary>
+                <p class="text-surface-600 mt-4 leading-relaxed font-medium">Atendemos a chicos desde los 3 años de edad. La primera visita odontológica es muy importante para generar un vínculo positivo con el dentista desde pequeños.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="contacto" class="py-28 px-6 bg-brand-950 text-white relative overflow-hidden">
+    <!-- Mesh gradient overlay inside CTA -->
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-500 via-brand-900 to-transparent"></div>
+    
+    <div class="max-w-3xl mx-auto text-center relative z-10 fade-up">
+        <h2 class="font-heading text-5xl md:text-6xl font-extrabold mb-6 leading-tight">Tu sonrisa ideal <br><span class="text-brand-300">a un mensaje de distancia</span></h2>
+        <p class="text-brand-100 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto">Reservar un turno es fácil y rápido. Escribinos por WhatsApp y te respondemos en minutos. Sin compromisos.</p>
+        
+        <a href="https://wa.me/5493571000000" target="_blank" class="bg-white text-brand-900 hover:bg-brand-50 text-lg font-bold py-5 px-10 rounded-full shadow-glow inline-flex items-center gap-3 transition-transform hover:scale-105">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-[#25D366]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Escribir por WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-surface-950 py-10 px-6 border-t border-surface-900 text-surface-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+            <span class="font-heading text-xl font-bold text-white block">Dra. Laura Santa</span>
+            <span class="text-sm">Odontología General y Estética · Río Tercero</span>
+        </div>
+        <div class="flex gap-6 text-sm font-medium">
+            <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+            <a href="#nosotros" class="hover:text-white transition-colors">La Dra. Laura</a>
+            <a href="#testimonios" class="hover:text-white transition-colors">Testimonios</a>
+        </div>
+        <p class="text-sm">© 2025 Todos los derechos reservados</p>
+    </div>
+</footer>
+
+<!-- STICKY WA -->
+<a href="https://wa.me/5493571000000" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-[0_8px_32px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+    // Nav Scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('glass-nav', 'py-3');
+            navbar.classList.remove('py-4', 'border-transparent');
+        } else {
+            navbar.classList.remove('glass-nav', 'py-3');
+            navbar.classList.add('py-4', 'border-transparent');
+        }
+    });
+
+    // Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', () => {
+        if(mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => mobileMenu.classList.add('opacity-100'), 10);
+        } else {
+            mobileMenu.classList.remove('opacity-100');
+            setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+        }
+    });
+    function closeMobile() {
+        mobileMenu.classList.remove('opacity-100');
+        setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+    }
+
+    // Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
