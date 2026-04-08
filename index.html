@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dra. Laura Santa — Odontología en Río Tercero</title>
-    <meta name="description" content="Consultorio odontológico de la Dra. Laura Santa en Río Tercero, Córdoba. Odontología general, estética dental y ortodoncia.">
+    <title>Dra. Laura Santa — Odontología Integral en Río Tercero</title>
+    <meta name="description" content="Consultorio odontológico de la Dra. Laura Santa en Río Tercero, Córdoba. Odontología general, estética dental y ortodoncia con técnicas indoloras.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,21 +17,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#F0FDFA',   /* Soft Teal Tint */
-                            100: '#CCFBF1',
-                            200: '#99F6E4',
-                            300: '#5EEAD4',
-                            400: '#2DD4BF',
-                            500: '#14B8A6',  /* Teal 500 */
-                            600: '#0D9488',
-                            700: '#0F766E',  /* Trust Teal / Primary */
-                            800: '#115E59',
-                            900: '#134E4A',  /* Deep Teal / Text */
-                            950: '#042F2E',
-                        },
-                        cta: {
-                            600: '#0284C7', /* Professional Blue CTA */
-                            700: '#0369A1',
+                            50: '#E8FDFF',
+                            100: '#C7FAFC',
+                            200: '#94F5FA',
+                            300: '#5AEEF5',
+                            400: '#22E3EF',
+                            500: '#3BDEE7',  /* vibrant base color */
+                            600: '#08B6CE',
+                            700: '#0E7490',
+                            800: '#155E75',
+                            900: '#164E63',  /* text colors */
+                            950: '#083344',
                         },
                         surface: {
                             50: '#F8FAFC',
@@ -46,424 +42,312 @@
                         heading: ['Lexend', 'system-ui', 'sans-serif'],
                     },
                     boxShadow: {
-                        'accessible': '0 4px 6px -1px rgba(15, 118, 110, 0.1), 0 2px 4px -2px rgba(15, 118, 110, 0.1)',
+                        'glow': '0 0 20px rgba(59, 222, 231, 0.3)',
+                        'hover-cyan': '0 20px 25px -5px rgba(59, 222, 231, 0.25), 0 8px 10px -6px rgba(59, 222, 231, 0.1)',
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Accessible Focus States */
-        *:focus-visible {
-            outline: 3px solid #0369A1;
-            outline-offset: 2px;
-        }
-
-        /* Essential Animations Only (Reduced Motion respected) */
-        @media (prefers-reduced-motion: no-preference) {
-            .transition-smooth {
-                transition: all 250ms ease-in-out;
-            }
-            .fade-up {
-                opacity: 0;
-                transform: translateY(16px);
-                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            }
-            .fade-up.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Smooth Transitions Setup */
+        .transition-smooth {
+            transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
         }
         
-        details summary::-webkit-details-marker { display: none; }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(59, 222, 231, 0.2), 0 8px 10px -6px rgba(59, 222, 231, 0.1);
+            border-color: #3BDEE7;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Zoom on hover */
+        .img-hover img {
+            transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-hover:hover img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
-<body class="antialiased bg-white text-surface-900 font-sans selection:bg-brand-200 selection:text-brand-900">
-
-<!-- SKIP LINK -->
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-brand-700 text-white px-4 py-2 rounded-md font-bold">Saltar al contenido principal</a>
+<body class="antialiased bg-white text-surface-900 font-sans selection:bg-brand-200 selection:text-brand-900 overflow-x-hidden">
 
 <!-- NAV -->
-<nav class="sticky top-0 z-50 bg-white border-b border-surface-200 shadow-sm py-4 px-6">
+<nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b border-surface-200/50 py-3 md:py-4 px-4 sm:px-6 transition-smooth">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#" class="flex items-center gap-3 group transition-smooth" aria-label="Inicio Dra. Laura Santa">
-            <div class="w-10 h-10 rounded-lg bg-brand-50 border-2 border-brand-100 flex items-center justify-center text-brand-700">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+        <a href="#" class="flex items-center gap-2 group transition-smooth">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-brand-300 to-brand-500 shadow-glow flex items-center justify-center text-brand-950 transition-smooth group-hover:scale-105">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
             </div>
             <div>
-                <span class="font-heading text-xl font-bold text-brand-900 block leading-tight">Dra. Laura Santa</span>
-                <span class="text-xs text-brand-700 font-medium tracking-wide uppercase">Odontología Integral</span>
+                <span class="font-heading text-lg md:text-xl font-extrabold text-brand-950 block leading-tight">Dra. Laura Santa</span>
+                <span class="text-[10px] md:text-xs text-brand-700 font-bold tracking-widest uppercase">Odontología</span>
             </div>
         </a>
-        <div class="hidden md:flex items-center gap-8">
-            <a href="#servicios" class="text-base font-semibold text-surface-800 hover:text-brand-700 transition-smooth">Servicios</a>
-            <a href="#casos" class="text-base font-semibold text-surface-800 hover:text-brand-700 transition-smooth">Casos Reales</a>
-            <a href="#nosotros" class="text-base font-semibold text-surface-800 hover:text-brand-700 transition-smooth">La Dra. Laura</a>
-            <a href="#testimonios" class="text-base font-semibold text-surface-800 hover:text-brand-700 transition-smooth">Pacientes</a>
+        <div class="hidden lg:flex items-center gap-8">
+            <a href="#servicios" class="text-sm font-bold text-surface-600 hover:text-brand-700 transition-smooth relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-500 after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300">Servicios</a>
+            <a href="#casos" class="text-sm font-bold text-surface-600 hover:text-brand-700 transition-smooth relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-500 after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300">Casos Reales</a>
+            <a href="#nosotros" class="text-sm font-bold text-surface-600 hover:text-brand-700 transition-smooth relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-brand-500 after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300">La Dra. Laura</a>
         </div>
         <div class="hidden md:flex">
-            <a href="https://wa.me/5493571000000" target="_blank" rel="noopener noreferrer" class="bg-cta-600 text-white hover:bg-cta-700 text-base font-semibold py-3 px-6 rounded-md shadow-sm transition-smooth flex items-center gap-2">
-                Reservar Turno
+            <a href="https://wa.me/5493571000000" target="_blank" rel="noopener noreferrer" class="bg-brand-950 text-brand-50 hover:bg-brand-800 text-sm font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-1 transition-smooth flex items-center gap-2">
+                Solicitar Turno
             </a>
         </div>
         
         <!-- Mobile menu toggle -->
-        <button id="menuToggle" class="md:hidden text-surface-900 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 rounded-md" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <button id="menuToggle" class="lg:hidden text-brand-950 p-2 focus:outline-none bg-brand-50 rounded-lg hover:bg-brand-100 transition-smooth">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
     </div>
     
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden w-full bg-white border-t border-surface-200 mt-4 pb-4">
-        <div class="flex flex-col gap-2 pt-2">
-            <a href="#servicios" class="text-surface-900 font-bold text-lg p-3 hover:bg-brand-50 rounded-md">Servicios</a>
-            <a href="#casos" class="text-surface-900 font-bold text-lg p-3 hover:bg-brand-50 rounded-md">Casos Reales</a>
-            <a href="#nosotros" class="text-surface-900 font-bold text-lg p-3 hover:bg-brand-50 rounded-md">La Dra. Laura</a>
-            <a href="https://wa.me/5493571000000" target="_blank" class="mt-4 bg-[#25D366] text-white hover:bg-[#128C7E] font-bold text-lg py-4 px-4 rounded-md flex items-center justify-center gap-2 mx-2">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <div id="mobileMenu" class="hidden w-full absolute top-[72px] inset-x-0 bg-white/95 backdrop-blur-xl border-b border-surface-200/50 shadow-2xl pb-6 transition-smooth">
+        <div class="flex flex-col px-6 pt-4 gap-2">
+            <a href="#servicios" class="text-brand-950 font-bold text-xl py-3 border-b border-brand-50">Servicios</a>
+            <a href="#casos" class="text-brand-950 font-bold text-xl py-3 border-b border-brand-50">Casos Reales</a>
+            <a href="#nosotros" class="text-brand-950 font-bold text-xl py-3 border-b border-brand-50">La Dra. Laura</a>
+            <a href="https://wa.me/5493571000000" target="_blank" class="mt-6 bg-brand-500 text-brand-950 shadow-glow font-bold text-lg py-4 px-4 rounded-xl flex items-center justify-center gap-2">
                 Contactar por WhatsApp
             </a>
         </div>
     </div>
 </nav>
 
-<main id="main-content">
+<main id="main-content" class="pt-24">
 
-<!-- HERO SECION -->
-<section class="bg-brand-50 pt-16 pb-24 border-b border-brand-100">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+<!-- HERO SECTION -->
+<section class="relative overflow-hidden bg-brand-50/50 py-12 md:py-20 lg:py-24 px-4 sm:px-6">
+    <!-- Glow effects behind hero -->
+    <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-brand-300 blur-[100px] opacity-40 animate-pulse pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-brand-500 blur-[120px] opacity-20 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10">
         <!-- Text -->
-        <div class="fade-up order-2 lg:order-1">
-            <div class="inline-block bg-white border-2 border-brand-200 text-brand-800 font-bold px-4 py-2 rounded-md mb-6 uppercase tracking-wide text-sm shadow-sm">
+        <div class="fade-up lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left">
+            <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-brand-200 text-brand-800 font-bold px-4 py-2 rounded-full mb-8 text-xs md:text-sm shadow-sm transition-smooth hover:border-brand-500">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping absolute"></span>
+                <span class="w-2 h-2 rounded-full bg-brand-500"></span>
                 Río Tercero, Córdoba
             </div>
             
-            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-900 leading-tight mb-6">
-                Odontología profesional preparada para vos
+            <h1 class="font-heading text-4xl sm:text-5xl lg:text-[4rem] font-extrabold text-brand-950 leading-[1.1] mb-6 md:mb-8">
+                El diseño de <br class="hidden sm:block"> <span class="bg-gradient-to-r from-brand-500 to-brand-700 bg-clip-text text-transparent">tu sonrisa</span>, <br class="hidden sm:block">es nuestra prioridad
             </h1>
             
-            <p class="text-lg sm:text-xl text-brand-800 leading-relaxed mb-10 font-medium">
-                Recuperá la confianza en tu sonrisa. Brindamos atención odontológica transparente, ética y de alta calidad para toda la familia.
+            <p class="text-base sm:text-lg lg:text-xl text-brand-800 leading-relaxed mb-8 md:mb-12 font-medium max-w-2xl px-4 lg:px-0">
+                Recuperá la funcionalidad y estética dental sin dolor. Atención transparente y ética para transformar la salud de tu boca en un entorno completamente relajante.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                <a href="https://wa.me/5493571000000" class="bg-cta-600 text-white hover:bg-cta-700 text-lg font-bold py-4 px-8 rounded-md shadow-md text-center transition-smooth flex justify-center items-center gap-2">
+            <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-4">
+                <a href="https://wa.me/5493571000000" class="bg-brand-500 text-brand-950 hover:bg-brand-400 text-base md:text-lg font-bold py-4 md:py-5 px-8 rounded-2xl shadow-glow hover:-translate-y-1 transition-smooth flex justify-center items-center gap-3">
                     Reservar tu Turno
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a href="#servicios" class="bg-white text-brand-800 border-2 border-brand-200 hover:border-brand-500 hover:text-brand-900 text-lg font-bold py-4 px-8 rounded-md text-center transition-smooth">
-                    Ver Tratamientos
-                </a>
-            </div>
-            
-            <!-- Trust Stats -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t-2 border-brand-200">
-                <div>
-                    <div class="font-heading text-3xl font-bold text-brand-900">+10</div>
-                    <div class="text-sm font-semibold text-brand-700 mt-1">Años de experiencia</div>
-                </div>
-                <div>
-                    <div class="font-heading text-3xl font-bold text-brand-900">+2k</div>
-                    <div class="text-sm font-semibold text-brand-700 mt-1">Pacientes atendidos</div>
-                </div>
-                <div class="hidden sm:block">
-                    <div class="font-heading text-3xl font-bold text-brand-900">100%</div>
-                    <div class="text-sm font-semibold text-brand-700 mt-1">Atención ética</div>
-                </div>
             </div>
         </div>
 
-        <!-- Image Block Solid -->
-        <div class="fade-up order-1 lg:order-2 w-full max-w-md mx-auto lg:max-w-none relative">
-            <div class="rounded-lg overflow-hidden border-4 border-white shadow-accessible aspect-[4/5] bg-surface-200 relative">
-                <img src="./assets/hero_smile.png" alt="Paciente sonriendo tras un excelente tratamiento odontológico" class="w-full h-full object-cover">
+        <!-- Image Wrapper -->
+        <div class="fade-up lg:w-1/2 w-full mt-8 lg:mt-0 relative group">
+            <div class="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2.5rem] bg-white p-3 md:p-4 shadow-2xl transition-smooth group-hover:shadow-hover-cyan rotate-1 hover:rotate-0">
+                <div class="w-full h-full rounded-[2rem] overflow-hidden relative">
+                    <img src="./assets/hero_smile.png" alt="Paciente sonriendo tras su tratamiento" class="w-full h-full object-cover transition-smooth group-hover:scale-105">
+                </div>
             </div>
             
-            <!-- Accessible Floating Feature -->
-            <div class="absolute -bottom-6 -left-2 sm:-left-8 bg-white border-2 border-brand-100 p-4 rounded-lg shadow-accessible flex items-center gap-4 w-64">
-                <div class="w-14 h-14 bg-brand-50 rounded-md flex-shrink-0 overflow-hidden border border-brand-200">
-                    <img src="./assets/hero_smile.png" alt="" class="w-full h-full object-cover" aria-hidden="true">
+            <!-- Float Badges -->
+            <div class="absolute -bottom-8 -left-4 sm:left-4 lg:-left-12 bg-white/95 backdrop-blur border border-brand-100 p-4 rounded-2xl shadow-xl flex items-center gap-4 w-64 md:w-72 transition-smooth hover:-translate-y-2 hover:shadow-cyan-500/20 z-20">
+                <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-brand-300 to-brand-500 rounded-xl flex-shrink-0 flex items-center justify-center text-brand-950 shadow-glow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
                 </div>
                 <div>
-                    <p class="text-sm font-extrabold text-brand-900 leading-tight">Atención Sin Dolor</p>
-                    <p class="text-xs font-semibold text-brand-700 mt-1">Técnicas Suaves</p>
+                    <p class="text-xs md:text-sm font-extrabold text-brand-950 leading-tight">Odontología Indolora</p>
+                    <p class="text-[10px] md:text-xs font-bold text-brand-700 mt-1">Instrumental avanzado</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TRUST BAR -->
-<section class="py-12 px-6 bg-white border-b border-surface-200">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="flex items-center gap-4 fade-up">
-            <div class="w-12 h-12 bg-brand-50 rounded-md border border-brand-200 flex items-center justify-center text-brand-700 flex-shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <div>
-                <h2 class="font-bold text-brand-900">Matrícula Habilitada</h2>
-                <p class="text-sm font-medium text-surface-600 mt-1">Colegio Odontológico</p>
-            </div>
-        </div>
-        <div class="flex items-center gap-4 fade-up">
-            <div class="w-12 h-12 bg-brand-50 rounded-md border border-brand-200 flex items-center justify-center text-brand-700 flex-shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </div>
-            <div>
-                <h2 class="font-bold text-brand-900">Atención Paciente</h2>
-                <p class="text-sm font-medium text-surface-600 mt-1">Protocolos amigables</p>
-            </div>
-        </div>
-        <div class="flex items-center gap-4 fade-up">
-            <div class="w-12 h-12 bg-brand-50 rounded-md border border-brand-200 flex items-center justify-center text-brand-700 flex-shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-            </div>
-            <div>
-                <h2 class="font-bold text-brand-900">Bioseguridad</h2>
-                <p class="text-sm font-medium text-surface-600 mt-1">Esterilización total</p>
-            </div>
-        </div>
-        <div class="flex items-center gap-4 fade-up">
-            <div class="w-12 h-12 bg-brand-50 rounded-md border border-brand-200 flex items-center justify-center text-brand-700 flex-shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            </div>
-            <div>
-                <h2 class="font-bold text-brand-900">Turno Directo</h2>
-                <p class="text-sm font-medium text-surface-600 mt-1">Gestión por WhatsApp</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- SERVICES -->
-<section id="servicios" class="py-20 px-6 bg-surface-50 border-b border-surface-200">
+<section id="servicios" class="py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-white relative">
     <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16 fade-up max-w-3xl mx-auto">
-            <span class="text-brand-700 font-bold uppercase tracking-widest text-sm mb-3 block">ESPECIALIDADES ONDONTOLÓGICAS</span>
-            <h2 class="font-heading text-4xl font-extrabold text-brand-900 mb-6">Salud Dental Integral</h2>
-            <p class="text-surface-600 text-lg font-medium leading-relaxed">Proveemos diagnósticos honestos y planes de tratamiento respaldados en evidencia para resolver desde necesidades básicas hasta casos de alta complejidad estética.</p>
+        <div class="text-center mb-16 md:mb-20 fade-up max-w-3xl mx-auto">
+            <span class="text-brand-500 font-extrabold uppercase tracking-widest text-xs md:text-sm mb-3 block">ESPECIALIDADES</span>
+            <h2 class="font-heading text-4xl md:text-5xl font-extrabold text-brand-950 mb-6">Tratamientos a medida</h2>
+            <p class="text-surface-600 text-base md:text-lg font-medium leading-relaxed px-4">Planes estructurados mediante tecnología de punta y enfoques indoloros para tu confort.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <!-- Servicio 1 -->
-            <div class="bg-white border-2 border-surface-200 p-8 rounded-lg shadow-sm hover:border-brand-300 hover:shadow-accessible transition-smooth fade-up group">
-                <div class="w-14 h-14 bg-brand-50 border-2 border-brand-100 rounded-md flex items-center justify-center text-brand-700 mb-6 group-hover:bg-brand-100 transition-colors">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            <div class="bg-surface-50 p-8 md:p-10 rounded-3xl border border-surface-200 card-hover transition-smooth fade-up flex flex-col">
+                <div class="w-14 h-14 bg-white border border-brand-200 shadow-sm rounded-2xl flex items-center justify-center text-brand-500 mb-6 transition-smooth">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
                 </div>
-                <h3 class="font-heading text-2xl font-bold text-brand-900 mb-3">Odontología General</h3>
-                <p class="text-surface-600 font-medium leading-relaxed mb-6 h-20">Tratamiento de caries, extracciones, flúor y prevención activa de patologías bucales.</p>
-                <a href="https://wa.me/5493571000000" class="text-cta-700 font-bold hover:underline flex items-center gap-2">Solicitar evaluación <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <h3 class="font-heading text-2xl font-extrabold text-brand-950 mb-4">Odontología General</h3>
+                <p class="text-surface-600 font-medium leading-relaxed flex-grow">Prevención activa, tratamiento de caries sutiles, y profilaxis profunda manteniendo tu esmalte invicto.</p>
             </div>
 
             <!-- Servicio 2 -->
-            <div class="bg-white border-2 border-surface-200 p-8 rounded-lg shadow-sm hover:border-brand-300 hover:shadow-accessible transition-smooth fade-up group">
-                <div class="w-14 h-14 bg-brand-50 border-2 border-brand-100 rounded-md flex items-center justify-center text-brand-700 mb-6 group-hover:bg-brand-100 transition-colors">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+            <div class="bg-surface-50 p-8 md:p-10 rounded-3xl border border-surface-200 card-hover transition-smooth fade-up flex flex-col">
+                <div class="w-14 h-14 bg-white border border-brand-200 shadow-sm rounded-2xl flex items-center justify-center text-brand-500 mb-6 transition-smooth">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912Z"/></svg>
                 </div>
-                <h3 class="font-heading text-2xl font-bold text-brand-900 mb-3">Estética y Carillas</h3>
-                <p class="text-surface-600 font-medium leading-relaxed mb-6 h-20">Diseño de sonrisa con porcelana o resina altamente estética para restaurar forma y color.</p>
-                <a href="https://wa.me/5493571000000" class="text-cta-700 font-bold hover:underline flex items-center gap-2">Solicitar evaluación <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <h3 class="font-heading text-2xl font-extrabold text-brand-950 mb-4">Estética Dental</h3>
+                <p class="text-surface-600 font-medium leading-relaxed flex-grow">Carillas de porcelana, rehabilitación de desgastes y reconstrucción del diseño natural de tu sonrisa.</p>
             </div>
 
             <!-- Servicio 3 -->
-            <div class="bg-white border-2 border-surface-200 p-8 rounded-lg shadow-sm hover:border-brand-300 hover:shadow-accessible transition-smooth fade-up group">
-                <div class="w-14 h-14 bg-brand-50 border-2 border-brand-100 rounded-md flex items-center justify-center text-brand-700 mb-6 group-hover:bg-brand-100 transition-colors">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21.1 16.5C19.7 13.9 16.5 12 12 12S4.3 13.9 2.9 16.5"/><path d="M12 12c4.4 0 8.4 2 10.3 5.3"/><path d="M1.7 17.3C3.6 14 7.6 12 12 12"/><path d="m14 14-2-2-2 2"/></svg>
+            <div class="bg-surface-50 p-8 md:p-10 rounded-3xl border border-surface-200 card-hover transition-smooth fade-up flex flex-col">
+                <div class="w-14 h-14 bg-white border border-brand-200 shadow-sm rounded-2xl flex items-center justify-center text-brand-500 mb-6 transition-smooth">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.1 16.5C19.7 13.9 16.5 12 12 12S4.3 13.9 2.9 16.5"/><path d="M12 12c4.4 0 8.4 2 10.3 5.3"/></svg>
                 </div>
-                <h3 class="font-heading text-2xl font-bold text-brand-900 mb-3">Ortodoncia</h3>
-                <p class="text-surface-600 font-medium leading-relaxed mb-6 h-20">Corrección de mordida y alineación dental con sistemas tradicionales y estéticos.</p>
-                <a href="https://wa.me/5493571000000" class="text-cta-700 font-bold hover:underline flex items-center gap-2">Solicitar evaluación <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-
-            <!-- Servicio 4 -->
-            <div class="bg-white border-2 border-surface-200 p-8 rounded-lg shadow-sm hover:border-brand-300 hover:shadow-accessible transition-smooth fade-up group">
-                <div class="w-14 h-14 bg-brand-50 border-2 border-brand-100 rounded-md flex items-center justify-center text-brand-700 mb-6 group-hover:bg-brand-100 transition-colors">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                </div>
-                <h3 class="font-heading text-2xl font-bold text-brand-900 mb-3">Blanqueamiento</h3>
-                <p class="text-surface-600 font-medium leading-relaxed mb-6 h-20">Aclaramiento seguro en consultorio para recuperar el blanco natural protegiendo el esmalte.</p>
-                <a href="https://wa.me/5493571000000" class="text-cta-700 font-bold hover:underline flex items-center gap-2">Solicitar evaluación <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-
-            <!-- Servicio 5 -->
-            <div class="bg-white border-2 border-surface-200 p-8 rounded-lg shadow-sm hover:border-brand-300 hover:shadow-accessible transition-smooth fade-up group">
-                <div class="w-14 h-14 bg-brand-50 border-2 border-brand-100 rounded-md flex items-center justify-center text-brand-700 mb-6 group-hover:bg-brand-100 transition-colors">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 12a5 5 0 0 0-10 0v4a5 5 0 0 0 10 0v-4Z"/><path d="M12 3v9"/><path d="M8 8h8"/><path d="M12 21v-5"/></svg>
-                </div>
-                <h3 class="font-heading text-2xl font-bold text-brand-900 mb-3">Implantes Dentales</h3>
-                <p class="text-surface-600 font-medium leading-relaxed mb-6 h-20">Reemplazo de piezas dentales perdidas devolviendo funcionalidad masticatoria total.</p>
-                <a href="https://wa.me/5493571000000" class="text-cta-700 font-bold hover:underline flex items-center gap-2">Solicitar evaluación <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            </div>
-
-            <!-- Urgencias -->
-            <div class="bg-brand-800 border-2 border-brand-900 p-8 rounded-lg shadow-sm fade-up text-white relative overflow-hidden">
-                <div class="w-14 h-14 bg-brand-700 border-2 border-brand-600 rounded-md flex items-center justify-center text-white mb-6 relative z-10">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-                </div>
-                <h3 class="font-heading text-2xl font-bold text-white mb-3 relative z-10">Urgencias Dentales</h3>
-                <p class="text-brand-100 font-medium leading-relaxed mb-6 h-20 relative z-10">Atención prioritaria para dolor agudo, inflamación o fracturas dentales espontáneas.</p>
-                <a href="https://wa.me/5493571000000" class="text-white font-bold hover:underline flex items-center gap-2 relative z-10">Comunicar Urgencia <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <h3 class="font-heading text-2xl font-extrabold text-brand-950 mb-4">Ortodoncia</h3>
+                <p class="text-surface-600 font-medium leading-relaxed flex-grow">Alineadores estéticos y brackets convencionales orientados no solo en belleza, sino en función oclusal.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CASOS REALES -->
-<section id="casos" class="py-20 px-6 bg-white border-b border-surface-200">
+<section id="casos" class="py-16 md:py-24 px-4 sm:px-6 bg-brand-950 text-white overflow-hidden relative">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16 fade-up max-w-3xl mx-auto">
-            <span class="text-brand-700 font-bold uppercase tracking-widest text-sm mb-3 block">DOCUMENTACIÓN CLÍNICA</span>
-            <h2 class="font-heading text-4xl font-extrabold text-brand-900 mb-6">Resultados Clínicos</h2>
-            <p class="text-surface-600 text-lg font-medium">Casos resueltos en consultorio buscando salud integral y biológica antes que una simple mejora cosmética.</p>
+            <h2 class="font-heading text-4xl md:text-5xl font-extrabold text-white mb-6">Fotografía Clínica</h2>
+            <p class="text-brand-300 text-base md:text-lg font-medium">Evidencia fotográfica de los procedimientos y el drástico cambio en la calidez de la sonrisa.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
             <!-- Caso 1 -->
-            <div class="fade-up border border-surface-200 p-6 rounded-lg bg-surface-50 shadow-sm">
-                <div class="relative rounded-md border border-surface-300 overflow-hidden aspect-[4/3] group mb-6">
-                    <img src="./assets/case1.webp" alt="Caso de rehabilitación dental del antes y después" class="w-full h-full object-contain bg-black">
+            <div class="fade-up img-hover rounded-3xl overflow-hidden relative group shadow-2xl">
+                <div class="absolute inset-0 bg-brand-500/20 z-10 group-hover:bg-transparent transition-smooth"></div>
+                <img src="./assets/case1.webp" alt="Caso de ortodoncia, antes y después" class="w-full h-full object-cover aspect-[4/3] md:aspect-video rounded-3xl">
+                <div class="absolute bottom-6 left-6 z-20 bg-brand-950/80 backdrop-blur border border-brand-800 p-4 rounded-xl">
+                    <h3 class="font-heading text-xl font-bold text-brand-50">Caso Ortodoncia</h3>
+                    <p class="text-brand-300 text-sm mt-1">Corrección de apiñamiento maxilar.</p>
                 </div>
-                <h3 class="font-heading text-2xl font-bold text-brand-900 mb-3">Rehabilitación y Ortodoncia</h3>
-                <p class="text-surface-600 font-medium leading-relaxed">Alineación dentaria respetando la oclusión y anatomía dental natural del paciente para devolver salud y función.</p>
             </div>
 
             <!-- Caso 2 -->
-            <div class="fade-up border border-surface-200 p-6 rounded-lg bg-surface-50 shadow-sm">
-                <div class="relative rounded-md border border-surface-300 overflow-hidden aspect-[4/3] group mb-6">
-                    <img src="./assets/case2.webp" alt="Caso de limpieza profunda de placa dental antes y después" class="w-full h-full object-contain bg-black">
+            <div class="fade-up img-hover rounded-3xl overflow-hidden relative group shadow-2xl md:translate-y-8">
+                <div class="absolute inset-0 bg-brand-500/20 z-10 group-hover:bg-transparent transition-smooth"></div>
+                <img src="./assets/case2.webp" alt="Caso de limpieza profunda" class="w-full h-full object-cover aspect-[4/3] md:aspect-video rounded-3xl">
+                <div class="absolute bottom-6 left-6 z-20 bg-brand-950/80 backdrop-blur border border-brand-800 p-4 rounded-xl">
+                    <h3 class="font-heading text-xl font-bold text-brand-50">Terapia Tissular</h3>
+                    <p class="text-brand-300 text-sm mt-1">Sanación completa de tejido gingival.</p>
                 </div>
-                <h3 class="font-heading text-2xl font-bold text-brand-900 mb-3">Terapia Periodontal Básica</h3>
-                <p class="text-surface-600 font-medium leading-relaxed">Resolución de gingivitis severa mediante remoción de sarro y biopelícula, devolviendo la salud de los tejidos.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- ABOUT DE LA DOCTORA -->
-<section id="nosotros" class="py-20 px-6 bg-brand-900 text-white border-b border-brand-950">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<section id="nosotros" class="py-20 md:py-32 px-4 sm:px-6 bg-brand-50 overflow-hidden relative">
+    <div class="absolute inset-y-0 right-0 w-1/2 bg-white rounded-l-[5rem] hidden lg:block pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
         <!-- Content -->
-        <div class="fade-up order-2 md:order-1">
-            <span class="text-brand-300 font-bold uppercase tracking-widest text-sm mb-3 block">Dirección Profesional</span>
-            <h2 class="font-heading text-4xl md:text-5xl font-extrabold text-white mb-8">Dra. Laura Santa</h2>
+        <div class="fade-up lg:w-1/2 order-2 lg:order-1 text-center lg:text-left">
+            <h2 class="font-heading text-4xl md:text-5xl font-extrabold text-brand-950 mb-8">Dra. Laura Santa</h2>
             
-            <p class="text-brand-100 text-lg leading-relaxed mb-6 font-medium">
-                Egresada de la Universidad Nacional de Córdoba, ejerzo mi profesión con un estricto compromiso ético y científico. Entiendo a la odontología no como un comercio, sino como una profesión de la salud que impacta en el bienestar general de las personas.
+            <p class="text-brand-900 text-lg md:text-xl leading-relaxed mb-6 font-medium">
+                Con profunda vocación por el cuidado íntimo de la salud humana, mi objetivo profesional pasa por revertir ansiedades y miedos habituales frente al sillón odontológico. 
             </p>
-            <p class="text-brand-100 text-lg leading-relaxed mb-10 font-medium">
-                Mi objetivo es que cada paciente entienda su diagnóstico, las opciones basadas en evidencia y pueda recibir un tratamiento indoloro, conservador y de altísima calidad en Río Tercero.
+            <p class="text-surface-600 text-base md:text-lg leading-relaxed mb-10 font-medium">
+                Cada consulta comprende diagnóstico radiográfico y clínico certero en Río Tercero. Porque tu sonrisa debe irradiar funcionalidad pero por sobre todo bienestar interior.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-6 mb-8">
-                <div class="bg-brand-800 p-6 rounded-md border-l-4 border-l-brand-400 font-medium flex-1">
-                    <p class="font-bold text-white text-lg mb-1">Certificación Universitaria</p>
-                    <p class="text-brand-200 text-sm">Universidad Nacional de Córdoba (UNC)</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div class="bg-white px-6 py-4 rounded-2xl border border-brand-100 shadow-sm">
+                    <p class="font-extrabold text-brand-950 text-xl font-heading">U.N.C.</p>
+                    <p class="text-surface-500 text-sm font-medium">Egresada Titular</p>
                 </div>
-                <div class="bg-brand-800 p-6 rounded-md border-l-4 border-l-brand-400 font-medium flex-1">
-                    <p class="font-bold text-white text-lg mb-1">Matrícula Habilitada</p>
-                    <p class="text-brand-200 text-sm">Colegio Odontológico Prov. Córdoba</p>
+                <div class="bg-white px-6 py-4 rounded-2xl border border-brand-100 shadow-sm">
+                    <p class="font-extrabold text-brand-950 text-xl font-heading">M.P.</p>
+                    <p class="text-surface-500 text-sm font-medium">Matrícula Regulada</p>
                 </div>
             </div>
         </div>
 
         <!-- Images -->
-        <div class="relative fade-up order-1 md:order-2 w-full max-w-sm mx-auto md:max-w-none">
-            <div class="rounded-lg overflow-hidden border-4 border-brand-700 shadow-accessible aspect-square bg-brand-800">
-                <img src="./assets/about_dental.png" alt="Dra. Laura Santa atendiendo a un paciente en el consultorio" class="w-full h-full object-cover">
+        <div class="relative fade-up lg:w-1/2 order-1 lg:order-2 w-full max-w-sm mx-auto lg:max-w-none img-hover">
+            <div class="rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl aspect-[3/4] bg-surface-200">
+                <img src="./assets/about_dental.png" alt="Dra. Laura Santa" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -bottom-8 -right-4 md:-right-8 bg-brand-500 text-brand-950 w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center p-4 text-center font-bold text-sm md:text-base border-4 border-white shadow-hover-cyan animate-[spin_30s_linear_infinite]">
+                 100% Ética Profesional
             </div>
         </div>
     </div>
 </section>
 
-<!-- FAQ -->
-<section id="preguntas" class="py-20 px-6 bg-surface-50 border-b border-surface-200">
-    <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-16 fade-up">
-            <h2 class="text-brand-700 font-bold uppercase tracking-widest text-sm mb-3">Información para el Paciente</h2>
-            <h3 class="font-heading text-3xl font-extrabold text-brand-900">Preguntas Frecuentes</h3>
-        </div>
+<!-- CTA -->
+<section class="py-24 md:py-32 px-4 sm:px-6 bg-white text-center">
+    <div class="max-w-4xl mx-auto fade-up bg-brand-950 rounded-[3rem] p-10 md:p-16 lg:p-24 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[200%] bg-brand-500 opacity-20 blur-[120px] rounded-full pointer-events-none"></div>
 
-        <div class="space-y-4 fade-up">
-            <!-- Item 1 -->
-            <details class="group bg-white border-2 border-surface-200 p-6 rounded-md focus-within:ring-2 focus-within:ring-brand-700">
-                <summary class="flex justify-between items-center font-bold text-lg text-brand-900 list-none cursor-pointer">
-                    <span>¿Cómo funciona el sistema de turnos?</span>
-                    <span class="transition-transform group-open:rotate-180 text-brand-700">
-                        <svg fill="none" height="24" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                    </span>
-                </summary>
-                <p class="text-surface-600 mt-4 leading-relaxed font-medium text-base">Trabajamos exclusivamente con turnos programados previos por WhatsApp para evitar demoras en sala de espera y brindarte el tiempo clínico necesario de forma ininterrumpida.</p>
-            </details>
-            <!-- Item 2 -->
-            <details class="group bg-white border-2 border-surface-200 p-6 rounded-md focus-within:ring-2 focus-within:ring-brand-700">
-                <summary class="flex justify-between items-center font-bold text-lg text-brand-900 list-none cursor-pointer">
-                    <span>¿Tienen cobertura con Obras Sociales?</span>
-                    <span class="transition-transform group-open:rotate-180 text-brand-700">
-                        <svg fill="none" height="24" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                    </span>
-                </summary>
-                <p class="text-surface-600 mt-4 leading-relaxed font-medium text-base">Al contactarte por mensaje, indicá qué obra social tenés. Manejamos un sistema mixto (obras sociales específicas y atención particular). Brindamos presupuestos transparentes previa revisión clínica.</p>
-            </details>
-            <!-- Item 3 -->
-            <details class="group bg-white border-2 border-surface-200 p-6 rounded-md focus-within:ring-2 focus-within:ring-brand-700">
-                <summary class="flex justify-between items-center font-bold text-lg text-brand-900 list-none cursor-pointer">
-                    <span>Miedo al dentista: ¿Ofrecen alternativas?</span>
-                    <span class="transition-transform group-open:rotate-180 text-brand-700">
-                        <svg fill="none" height="24" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-                    </span>
-                </summary>
-                <p class="text-surface-600 mt-4 leading-relaxed font-medium text-base">Entendemos perfecto tu situación. Nuestro enfoque preventivo y mínimamente invasivo, junto al control absoluto del dolor mediante anestésicos modernos, logra recuperar la confianza en los pacientes con temor.</p>
-            </details>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER CTA -->
-<section class="py-24 px-6 bg-brand-50 border-b-8 border-brand-700 text-center">
-    <div class="max-w-3xl mx-auto fade-up">
-        <h2 class="font-heading text-4xl font-extrabold text-brand-900 mb-6">Diagnóstico Ético y Transparente</h2>
-        <p class="text-brand-800 text-lg font-medium mb-10">Agenda tu consulta de evaluación, charlemos sobre tu caso y resolvamos juntos tu salud bucal.</p>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 relative z-10 leading-tight">Cuidamos tu salud <br> de manera inteligente</h2>
+        <p class="text-brand-200 text-lg md:text-xl font-medium mb-12 relative z-10 max-w-2xl mx-auto">Vení  a conocernos y te aseguramos que tus percepciones sobre ir al odontólogo cambiarán para siempre.</p>
         
-        <a href="https://wa.me/5493571000000" class="inline-flex bg-cta-600 text-white hover:bg-cta-700 text-lg font-bold py-5 px-10 rounded-md shadow-md items-center gap-3 transition-smooth">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-            Contactar Consultorio (WhatsApp)
+        <a href="https://wa.me/5493571000000" class="inline-flex bg-brand-500 text-brand-950 hover:bg-brand-400 text-lg font-extrabold py-5 md:py-6 px-10 md:px-14 rounded-full shadow-glow hover:scale-105 transition-smooth relative z-10 items-center justify-center gap-3 w-full sm:w-auto">
+            Contactar vía WhatsApp
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.215l5.5-1.441A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.522-5.17-1.428l-.37-.22-3.261.854.872-3.176-.24-.388A9.946 9.946 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         </a>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-surface-900 py-12 px-6 text-surface-400">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<footer class="bg-white py-12 px-6 border-t border-surface-100">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div>
-            <span class="font-heading text-2xl font-bold text-white block mb-1">Dra. Laura Santa</span>
-            <span class="text-sm font-medium">Odontología General y Estética · Río Tercero</span>
+            <span class="font-heading text-2xl font-extrabold text-brand-950 block mb-1">Dra. Laura Santa</span>
+            <span class="text-surface-500 font-medium text-sm">Río Tercero, Córdoba</span>
         </div>
-        <div class="flex gap-6 text-base font-semibold">
-            <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-            <a href="#nosotros" class="hover:text-white transition-colors">La Dra. Laura</a>
-        </div>
-        <p class="text-sm font-medium">© 2025 Todos los derechos reservados.</p>
+        <p class="text-surface-400 font-bold text-sm">© 2025 Todos los derechos reservados.</p>
     </div>
 </footer>
 
 </main>
 
 <script>
-    // Essential Interactivity
+    // Mobile navigation logic toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     
     if(menuToggle && mobileMenu) {
         menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if(isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('block');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('block');
+            }
+        });
+        
+        // Auto-close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('block');
+            });
         });
     }
 
-    // Scroll Animations (Only if no reduced motion preference)
+    // Advanced Smooth Scroll Animation handling elements in viewport via Observer
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (!prefersReducedMotion && 'IntersectionObserver' in window) {
@@ -471,14 +355,15 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Stop observing once animated fully
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
         
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     } else {
-        // Fallback for reduced motion
+        // Accessibility fallback
         document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
     }
 </script>
